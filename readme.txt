@@ -1,4 +1,4 @@
-i used xamp and this is the database query>>
+i used xamp and this is the database{videodb} query>> to create table and r/c
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
