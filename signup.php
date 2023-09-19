@@ -8,13 +8,20 @@
 <body>
     <h1>Sign Up</h1>
     <form action="signup_process.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+
+    <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required><br><br>
+    <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" required><br><br>
         
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="emailnumber">Email/Number:</label>
+        <input type="text" id="emailnumber" name="emailnumber" required><br><br>
         
+       
         <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <label for="password">Confirm Password:</label>
         <input type="password" id="password" name="password" required><br><br>
         
         <input type="submit" value="Sign Up">
