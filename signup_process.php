@@ -1,8 +1,7 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $emailnumber = $_POST["emailnumber"];
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
+    $username = $_POST["username"];
+    $name = $_POST["name"];
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Hash the password for security
     
     // Connect to the MySQL database
@@ -13,15 +12,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
     
-    // Check if the emailnumber is already taken
-    $check_emailnumber_query = "SELECT * FROM users WHERE emailnumber = '$emailnumber'";
-    $result = $conn->query($check_emailnumber_query);
+    // Check if the username is already taken
+    $check_username_query = "SELECT * FROM users WHERE username = '$username'";
+    $result = $conn->query($check_username_query);
     
     if ($result->num_rows > 0) {
-        echo "emailnumber already taken. Please choose another.";
+        echo "Username already taken. Please choose another.";
     } else {
         // Insert user data into the database
-        $insert_query = "INSERT INTO users (fname,lname,emailnumber,  password) VALUES ('$fname','$lname','$emailnumber',  '$password')";
+        $insert_query = "INSERT INTO users (username, name, password) VALUES ('$username', '$name', '$password')";
         
         if ($conn->query($insert_query) === TRUE) {
             echo "Registration successful. <a href='login.php'>Log in</a> to your account.";
