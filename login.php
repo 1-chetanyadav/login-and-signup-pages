@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Log In</h1>
+<body> <div id="main">
+        <div id="login">
+            <h1>Login</h1>
     <form action="login_process.php" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+     
+        <input type="text" class="textarea" placeholder="Email or phone number" id="emailnumber" name="emailnumber" required><br><br>
         
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        
-        <input type="submit" value="Log In">
+       
+        <input type="password" class="textarea" placeholder="Password" id="password" name="password" required><br><br>
+        <div id="btn">
+         
+            <input id="sub" type="submit"  value="Log In">
+            <button>forgot password</button>
+        </div>
     </form>
     <p>Don't have an account? <a href="signup.php">Sign Up</a></p>
+    </div>
 </body>
 </html>
