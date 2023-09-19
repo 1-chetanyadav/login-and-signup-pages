@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
+    $emailnumber = $_POST["emailnumber"];
     $password = $_POST["password"];
     
     // Connect to the MySQL database
@@ -11,9 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
     
-    // Retrieve user data by username
-    $check_username_query = "SELECT * FROM users WHERE username = '$username'";
-    $result = $conn->query($check_username_query);
+    // Retrieve user data by emailnumber
+    $check_emailnumber_query = "SELECT * FROM users WHERE emailnumber = '$emailnumber'";
+    $result = $conn->query($check_emailnumber_query);
     
     if ($result->num_rows === 1) {
         $row = $result->fetch_assoc();
@@ -21,12 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Verify the password
         if (password_verify($password, $stored_password)) {
-            echo "Login successful. Welcome, " . $row["name"] . "!";
+            echo "Login successful. Welcome, " . $row["fname"] . " ";
         } else {
             echo "Incorrect password. Please try again.";
         }
     } else {
-        echo "Username not found. Please sign up.";
+        echo "Email/Number not found. Please sign up.";
     }
     
     // Close the database connection
